@@ -53,6 +53,18 @@ subnets = [
             log_config                   = "false"
         },
         {
+            subnet_name                  = "subnet-vm-staging-4"
+            subnet_ip                    = "172.24.200.0/24"
+            subnet_region                = "asia-southeast1"
+            subnet_flow_logs             = "false"
+            subnet_flow_logs_interval    = null
+            subnet_flow_logs_sampling    = null
+            subnet_flow_logs_metadata    = null
+            subnet_flow_logs_filter_expr = null
+			      subnet_private_access = true
+            log_config                   = "false"
+        },
+        {
             subnet_name                  = "subnet-ilb-l7-staging-1"
             subnet_ip                    = "172.24.138.0/23"
             subnet_region                = "asia-southeast1"
