@@ -1,7 +1,6 @@
 version: 3
-automerge:
-  enabled: true
-  delete_branch: true
+automerge: true
+delete_branch: true
 projects:
   # staging-networks
   - name: staging-network
