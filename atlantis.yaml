@@ -1,7 +1,7 @@
 version: 3
 automerge: true
 projects:
-  # staging-networks
+  # staging-network
   - name: staging-network
     dir: infrastructure/environments/staging/network
     autoplan:
