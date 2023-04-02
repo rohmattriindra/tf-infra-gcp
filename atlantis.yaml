@@ -6,10 +6,10 @@ projects:
     dir: infrastructure/environments/staging/network
     autoplan:
       enabled: true
-    apply_requirements: [approved]
       when_modified: ["../../../stack/network/*.tf*", "terraform.tfvars"]
     workspace: staging
     workflow: terraform
+   apply_requirements: [mergeable]
 
 workflows:
   terraform:
