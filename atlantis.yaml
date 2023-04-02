@@ -21,7 +21,7 @@ workflows:
       - run: |
               rm -rf .terraform
               terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR" --reconfigure
-              terraform -chdir="../../../stacks/$PROJECT_DIR/" plan -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars" -out tfplan.binary
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" plan -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
     apply:
       steps:
 
@@ -30,5 +30,5 @@ workflows:
               command: echo $PROJECT_NAME | cut -d- -f2
 
       - run: |
-              terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR"
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR" --reconfigure
               terraform -chdir="../../../stacks/$PROJECT_DIR/" apply --auto-approve -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
