@@ -1,5 +1,8 @@
 version: 3
 automerge: true
+delete_source_branch_on_merge: true
+parallel_plan: true
+parallel_apply: true
 projects:
   # staging-networks
   - name: staging-network
@@ -32,4 +35,3 @@ workflows:
       - run: |
               terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR"
               terraform -chdir="../../../stacks/$PROJECT_DIR/" apply --auto-approve -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
-              
