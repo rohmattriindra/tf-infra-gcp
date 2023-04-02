@@ -1,0 +1,12 @@
+# vm grafana
+project_id              = "staging-tech-dev-382405"
+region               = "asia-southeast1"
+zones                = ["asia-southeast1-a","asia-southeast1-b"]
+instance_count       = 1
+instance_name_prefix = "vm-atlantis-staging"
+machine_type         = "e2-micro"
+disk_image           = "ubuntu-os-cloud/ubuntu-2004-lts"
+disk_size            = 10
+vpc                  = "vpc-staging"
+subnet               = "subnet-vm-staging-1"
+tags                 = ["atlantis"]
