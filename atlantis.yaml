@@ -23,7 +23,6 @@ workflows:
               rm -rf .terraform
               terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR" --reconfigure
               terraform -chdir="../../../stacks/$PROJECT_DIR/" plan -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars" -out tfplan.binary
-              terraform -chdir="../../../stacks/$PROJECT_DIR/" show -json tfplan.binary > plan.json
     apply:
       steps:
 
