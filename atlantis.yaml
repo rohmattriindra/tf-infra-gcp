@@ -25,7 +25,6 @@ workflows:
               terraform -chdir="../../../stacks/$PROJECT_DIR/" plan -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
     apply:
       steps:
-
       - env: 
               name: PROJECT_DIR
               command: echo $PROJECT_NAME | cut -d- -f2
