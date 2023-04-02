@@ -32,3 +32,4 @@ workflows:
       - run: |
               terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR"
               terraform -chdir="../../../stacks/$PROJECT_DIR/" apply --auto-approve -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
+              
