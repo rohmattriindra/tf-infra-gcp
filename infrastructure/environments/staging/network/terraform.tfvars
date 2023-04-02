@@ -54,7 +54,7 @@ subnets = [
         },
         {
             subnet_name                  = "subnet-ilb-l7-staging-1"
-            subnet_ip                    = "172.24.138.0/23"
+            subnet_ip                    = "172.25.138.0/23"
             subnet_region                = "asia-southeast1"
             subnet_flow_logs             = "false"
             subnet_flow_logs_interval    = null
