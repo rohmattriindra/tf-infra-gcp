@@ -71,7 +71,7 @@ rules =   [{
     target_service_accounts = null
     allow = [{
       protocol = "tcp"
-      ports = ["22", "4141", "80", "443", "8080"]
+      ports = ["22", "4141", "80", "443", "8081"]
     }]
     deny = []
     log_config = null
