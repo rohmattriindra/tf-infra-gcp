@@ -10,8 +10,8 @@ projects:
       when_modified: ["../../../stack/network/*.tf*", "terraform.tfvars"]
     workspace: staging
     workflow: terraform
-    apply_requirements: [approved]
-    #mergeable -> test remove mergeable
+    apply_requirements: [mergeable]
+  
 
 workflows:
   terraform:
