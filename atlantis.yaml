@@ -1,0 +1,36 @@
+version: 3
+automerge: true
+delete_source_branch_on_merge: true
+projects:
+  # staging-networks
+  - name: staging-network
+    dir: infrastructure/environments/staging/network
+    autoplan:
+      enabled: true
+      when_modified: ["../../../stack/network/*.tf*", "terraform.tfvars"]
+    workspace: staging
+    workflow: terraform
+    apply_requirements: [mergeable]
+  
+
+workflows:
+  terraform:
+    plan:
+      steps:
+      - env: 
+              name: PROJECT_DIR
+              command: echo $PROJECT_NAME | cut -d- -f2
+
+      - run: |
+              rm -rf .terraform
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR" --reconfigure
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" plan -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
+    apply:
+      steps:
+      - env: 
+              name: PROJECT_DIR
+              command: echo $PROJECT_NAME | cut -d- -f2
+
+      - run: |
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" init -backend-config=prefix="$WORKSPACE/$PROJECT_DIR" --reconfigure
+              terraform -chdir="../../../stacks/$PROJECT_DIR/" apply --auto-approve -var-file="../../environments/$WORKSPACE/$PROJECT_DIR/terraform.tfvars"
