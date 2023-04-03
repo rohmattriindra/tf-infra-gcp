@@ -12,6 +12,15 @@ projects:
     workflow: terraform
     apply_requirements: [mergeable]
   
+  # staging firewall
+  - name: staging-firewall
+    dir: infrastructure/environments/staging/firewall
+    autoplan:
+      enabled: true
+      when_modified: ["../../../stack/network/*.tf*", "terraform.tfvars"]
+    workspace: staging
+    workflow: terraform
+    apply_requirements: [mergeable]
 
 workflows:
   terraform:
